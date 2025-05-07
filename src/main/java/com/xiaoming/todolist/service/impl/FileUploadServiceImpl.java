@@ -2,8 +2,10 @@ package com.xiaoming.todolist.service.impl;
 
 import com.xiaoming.todolist.model.ApiResponse;
 import com.xiaoming.todolist.service.FileUploadService;
+import lombok.Data;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -11,6 +13,8 @@ import java.io.File;
 import java.io.IOException;
 
 @Service
+@Data//为成员变量生成get和set方法
+@ConfigurationProperties(prefix = "oss")
 public class FileUploadServiceImpl implements FileUploadService {
 
     private static final Logger logger = LoggerFactory.getLogger(FileUploadServiceImpl.class);
